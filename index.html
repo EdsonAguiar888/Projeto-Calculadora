@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="main">   <!--  ==>div titulo<==  -->
+
+        <h1>Calculadora</h1>
+
+            <div class="screen">    <!--  // ==>div tela do display<==//  -->
+
+                <p type="text" class="screen_input" id="resultado"></p>
+            
+            </div>
+
+            <div class="butons">
+                <button class="btn btn--on" onclick="clean('on')" >ON</button>
+                <button class="btn btn--clean" onclick="back('c')" >C</button>
+                <button class="btn btn--per" onclick="insert('%')" >%</button>
+                <button class="btn btn--1" onclick="insert('1')" >1</button>
+                <button class="btn btn--2" onclick="insert('2')" >2</button>
+                <button class="btn btn--3" onclick="insert('3')" >3</button>
+                <button class="btn btn--add"onclick="insert('+')">+</button>
+                <button class="btn btn--4" onclick="insert('4')" >4</button>
+                <button class="btn btn--5" onclick="insert('5')" >5</button>
+                <button class="btn btn--6" onclick="insert('6')" >6</button>
+                <button class="btn btn--sub" onclick="insert('-')"  >-</button>
+                <button class="btn btn--7" onclick="insert('7')" >7</button>
+                <button class="btn btn--8" onclick="insert('8')" >8</button>
+                <button class="btn btn--9" onclick="insert('9')" >9</button>
+                <button class="btn btn--mul" onclick="insert('*')" >x</button>
+                <button class="btn btn--0" onclick="insert('0')" >0</button>
+                <button class="btn btn--res" onclick="calcular('=')">=</button>
+                <button class="btn btn--dot" onclick="insert('.')" >.</button>
+                <button class="btn btn--div" onclick="insert('/')" >/</button>
+            </div>
+       
+    </div>
+
+    <script>
+
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado') .innerHTML ;
+            document.getElementById('resultado').innerHTML = numero + num ;
+        }
+        
+        function clean()
+        {
+            document.getElementById('resultado') .innerHTML = "";
+        }
+
+        function back()
+        {
+            var resultado = document.getElementById('resultado') .innerHTML;
+            document.getElementById('resultado') .innerHTML = resultado.substring(0, resultado.length -1);
+        }
+       
+        function calcular ()
+        {
+            var resultado = document.getElementById('resultado') .innerHTML;
+            if (resultado)
+            {
+                document.getElementById('resultado') .innerHTML = eval(resultado) ;
+            }
+            
+            else
+            {
+                document.getElementById('resultado') .innerHTML = "Digite Num" ;
+            }
+        
+        }
+
+
+    </script>
+</body>
+</html>
